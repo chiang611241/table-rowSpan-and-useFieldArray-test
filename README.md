@@ -3,7 +3,7 @@ Created with CodeSandbox
 https://codesandbox.io/embed/github/chiang611241/table-rowSpan-and-useFieldArray-test/tree/main/?fontsize=14&hidenavigation=1&theme=dark   
 
 # 📚 練習 practise
-1. react hook from - useFeildArray
+1. react hook form - useFeildArray
 2. material UI - grid, table
 
 ------
