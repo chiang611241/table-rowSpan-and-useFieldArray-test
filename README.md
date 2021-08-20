@@ -8,6 +8,6 @@ Created with CodeSandbox
 ------
 
 # 🎯 目標 Goals
-✅ 可以新增主項目與主項目的各項子項目
-✅ 練習 fieldArray 基礎功能（append, remove)
-✅ 練習 error 顯示 (setError, clearErrors)
+✅ 可以新增主項目與主項目的各項子項目.  
+✅ 練習 fieldArray 基礎功能（append, remove).  
+✅ 練習 error 顯示 (setError, clearErrors).  
