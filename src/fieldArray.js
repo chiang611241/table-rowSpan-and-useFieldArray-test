@@ -35,7 +35,7 @@ const FieldArray = ({ control, watch, clearErrors, setError, errors }) => {
   function addSecField() {
     if (!fields.length) {
       setError("test", {
-        type: "requier",
+        type: "required",
         message: "You should append a main fields."
       });
     }
