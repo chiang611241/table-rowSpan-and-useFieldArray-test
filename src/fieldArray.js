@@ -1,8 +1,10 @@
-import React from "react";
+import React, { createContext } from "react";
 import { useFieldArray } from "react-hook-form";
 
 import FieldArrayTable from "./fieldArrayTable";
 import FieldArrayController from "./fieldArrayController";
+
+export const Context = createContext({});
 
 const FieldArray = ({ control, watch, clearErrors, setError, errors }) => {
   const { fields, append, remove } = useFieldArray({
@@ -49,24 +51,25 @@ const FieldArray = ({ control, watch, clearErrors, setError, errors }) => {
     clearErrors("test");
   }
 
+  const value = {
+    control,
+    errors,
+    fields,
+    secFields,
+    watch,
+    addField,
+    removeField,
+    addSecField,
+    removeSecField
+  };
+
   return (
     <div>
-      <FieldArrayController
-        control={control}
-        fields={fields}
-        fieldName="test"
-        handleRemove={removeField}
-        handleAdd={addField}
-      />
-      <FieldArrayController
-        control={control}
-        fields={secFields}
-        fieldName="secTest"
-        handleRemove={removeSecField}
-        handleAdd={addSecField}
-        errors={errors}
-      />
-      <FieldArrayTable fields={fields} secFields={secFields} watch={watch} />
+      <Context.Provider value={value}>
+        <FieldArrayController fieldName="test" />
+        <FieldArrayController fieldName="secTest" />
+        <FieldArrayTable />
+      </Context.Provider>
     </div>
   );
 };

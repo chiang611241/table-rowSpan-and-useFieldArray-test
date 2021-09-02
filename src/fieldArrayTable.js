@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import TableContainer from "@material-ui/core/TableContainer";
 import Table from "@material-ui/core/Table";
@@ -8,14 +8,17 @@ import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import { makeStyles } from "@material-ui/core/styles";
 
+import { Context } from "./fieldArray";
+
 const useStyle = makeStyles({
   tableBorder: {
     borderLeft: "1px  solid rgba(224, 224, 224, 1)"
   }
 });
 
-const FieldArrayTable = ({ fields, secFields, numFields, watch }) => {
+const FieldArrayTable = () => {
   const classes = useStyle();
+  const { fields, secFields, watch } = useContext(Context);
   let sl = [];
 
   return (
