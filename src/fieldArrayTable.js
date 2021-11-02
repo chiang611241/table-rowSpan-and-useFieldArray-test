@@ -38,7 +38,7 @@ const FieldArrayTable = () => {
                 sl[index] += secFields.length + 1;
               }
               return (
-                <React.Fragment key={index}>
+                <React.Fragment key={`test-${index}`}>
                   <TableRow>
                     <TableCell rowSpan={sl[index]}>
                       <p>{watch(`test[${index}].type`)}</p>
@@ -47,7 +47,7 @@ const FieldArrayTable = () => {
                   {secFields.length > 0 &&
                     secFields.map((sub, index) => {
                       return (
-                        <React.Fragment key={index}>
+                        <React.Fragment key={`subTest-${index}`}>
                           <TableRow>
                             <TableCell className={classes.tableBorder}>
                               <p>{watch(`secTest[${index}].type`)}</p>
