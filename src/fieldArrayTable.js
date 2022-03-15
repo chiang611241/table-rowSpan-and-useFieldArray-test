@@ -9,6 +9,7 @@ import TableCell from "@material-ui/core/TableCell";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { Context } from "./fieldArray";
+import ArrayItem from "./fieldArrayItem";
 
 const useStyle = makeStyles({
   tableBorder: {
@@ -18,7 +19,7 @@ const useStyle = makeStyles({
 
 const FieldArrayTable = () => {
   const classes = useStyle();
-  const { fields, secFields, watch } = useContext(Context);
+  const { fields, secFields } = useContext(Context);
   let sl = [];
 
   return (
@@ -39,21 +40,20 @@ const FieldArrayTable = () => {
               }
               return (
                 <React.Fragment key={`test-${index}`}>
-                  <TableRow>
-                    <TableCell rowSpan={sl[index]}>
-                      <p>{watch(`test[${index}].type`)}</p>
-                    </TableCell>
-                  </TableRow>
+                  <ArrayItem
+                    arrayName="test"
+                    index={index}
+                    rowSpan={sl[index]}
+                    classes={classes}
+                  />
                   {secFields.length > 0 &&
                     secFields.map((sub, index) => {
                       return (
-                        <React.Fragment key={`subTest-${index}`}>
-                          <TableRow>
-                            <TableCell className={classes.tableBorder}>
-                              <p>{watch(`secTest[${index}].type`)}</p>
-                            </TableCell>
-                          </TableRow>
-                        </React.Fragment>
+                        <ArrayItem
+                          arrayName="secTest"
+                          index={index}
+                          classes={classes}
+                        />
                       );
                     })}
                 </React.Fragment>
